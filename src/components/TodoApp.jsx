@@ -33,10 +33,22 @@ function TodoApp() {
   }
 
   return (
-    <div>
-      <form action="">
-        <input type="text" onChange={handleChange} value={title} />
-        <button onClick={handleSubmit}>Add</button>
+    <div className="pt-10 max-w-xl m-auto ">
+      <h1 className="p-4 text-center font-bold text-2xl">Todo React</h1>
+      <form className="flex gap-1 justify-center py-4">
+        <input
+          className="px-4 py-2 border-2 text-slate-800 rounded w-full"
+          type="text"
+          onChange={handleChange}
+          value={title}
+          required
+        />
+        <button
+          className="rounded bg-sky-600 px-4 py-2 text-white hover:bg-sky-500"
+          onClick={handleSubmit}
+        >
+          Add
+        </button>
       </form>
       <div>
         {todos.map(({ id, title }) => (
