@@ -21,12 +21,23 @@ function Todo({ id, title, onUpdate, onDelete }) {
     }
 
     return (
-      <>
-        <form onSubmit={handleSubmit}>
-          <input type="text" onChange={handleChange} value={titleUpdate} />
-          <button onClick={handleClickUpdateTodo}>Update</button>
-        </form>
-      </>
+      <form
+        className="flex justify-between mt-3 items-center gap-2"
+        onSubmit={handleSubmit}
+      >
+        <input
+          className="px-4 py-1 shadow-md text-xl text-slate-800 rounded w-full"
+          type="text"
+          onChange={handleChange}
+          value={titleUpdate}
+        />
+        <button
+          className="px-4 py-1 bg-green-400 rounded text-white"
+          onClick={handleClickUpdateTodo}
+        >
+          Update
+        </button>
+      </form>
     );
   }
 
@@ -35,15 +46,27 @@ function Todo({ id, title, onUpdate, onDelete }) {
       onDelete(id);
     }
     return (
-      <div>
-        <div>{title}</div>
-        <button onClick={() => setIsEdit(true)}>edit</button>
-        <button onClick={handleClickDeleteTodo}>delete</button>
+      <div className="flex justify-between mt-3 items-center">
+        <div className="text-xl">{title}</div>
+        <div className="flex gap-2 text-white">
+          <button
+            className="px-4 py-1 bg-orange-400 rounded"
+            onClick={() => setIsEdit(true)}
+          >
+            Edit
+          </button>
+          <button
+            className="px-4 py-1 bg-red-400 rounded"
+            onClick={handleClickDeleteTodo}
+          >
+            Delete
+          </button>
+        </div>
       </div>
     );
   }
 
-  return <div>{isEdit ? <FormEdit /> : <TodoElement />}</div>;
+  return <div className="px-4">{isEdit ? <FormEdit /> : <TodoElement />}</div>;
 }
 
 export default Todo;

@@ -37,7 +37,7 @@ function TodoApp() {
       <h1 className="p-4 text-center font-bold text-2xl">Todo React</h1>
       <form className="flex gap-1 justify-center py-4">
         <input
-          className="px-4 py-2 border-2 text-slate-800 rounded w-full"
+          className="px-4 py-2 border-2 text-slate-800 text-xl rounded w-full"
           type="text"
           onChange={handleChange}
           value={title}
@@ -51,6 +51,7 @@ function TodoApp() {
         </button>
       </form>
       <div>
+        <h2 className="font-semibold text-blue-300 underline">TODO's</h2>
         {todos.map(({ id, title }) => (
           <Todo
             key={id}
